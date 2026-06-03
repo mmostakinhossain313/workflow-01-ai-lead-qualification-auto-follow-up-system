@@ -214,3 +214,50 @@ The workflow helps businesses respond faster, stay organized, and reduce the ris
 The core idea behind this project is simple:
 
 **No Lead Should Be Lost.**
+## Project Pricing Estimate
+
+This project demonstrates a complete AI-powered lead qualification and follow-up automation system built with n8n.
+
+### Starter Package
+
+Includes:
+
+* Google Form Integration
+* Google Sheets Integration
+* Lead Storage
+* Telegram Notification
+
+Estimated Project Value: **$50**
+
+### Standard Package
+
+Includes:
+
+* Google Form Integration
+* Google Sheets Integration
+* AI Lead Qualification
+* Telegram Notification
+* Automatic Follow-Up Email
+
+Estimated Project Value: **$100 - $150**
+
+### Premium Package
+
+Includes:
+
+* Everything in Standard
+* Advanced AI Prompt Customization
+* Additional Integrations
+* Extended Documentation
+* Custom Business Logic
+
+Estimated Project Value: **$200 - $300**
+
+## Ongoing Costs
+
+This workflow does not require a monthly maintenance fee in most cases.
+
+Possible recurring costs:
+
+* OpenAI API: Approximately $1 - $10/month depending on usage
+* Optional third-party services if added by the client
