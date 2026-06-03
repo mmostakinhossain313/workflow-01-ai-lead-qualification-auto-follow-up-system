@@ -54,3 +54,28 @@ This allows the business owner to respond faster and stay organized without addi
 * OpenAI
 * Telegram
 * Gmail
+
+## Workflow Diagram
+
+Google Form
+↓
+Google Sheets
+↓
+Google Sheets Trigger
+↓
+AI Lead Analysis
+↓
+Telegram Notification
+↓
+Gmail Follow-Up
+
+## How It Works
+
+A potential customer submits a form.
+
+The lead information is stored in Google Sheets and automatically starts the workflow.
+
+The system reviews the lead details, creates a summary, sends an instant Telegram notification, and automatically sends a follow-up email.
+
+This helps businesses respond faster and keeps all lead information organized in one process.
+
