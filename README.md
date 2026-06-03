@@ -57,25 +57,31 @@ This allows the business owner to respond faster and stay organized without addi
 
 ## Workflow Diagram
 
+```text
 Google Form
-↓
+    │
+    ▼
 Google Sheets
-↓
+    │
+    ▼
 Google Sheets Trigger
-↓
+    │
+    ▼
 AI Lead Analysis
-↓
+    │
+    ▼
 Telegram Notification
-↓
+    │
+    ▼
 Gmail Follow-Up
+```
 
 ## How It Works
 
-A potential customer submits a form.
+A potential customer fills out a form on the website.
 
-The lead information is stored in Google Sheets and automatically starts the workflow.
+The lead information is automatically stored in Google Sheets, which triggers the automation workflow.
 
-The system reviews the lead details, creates a summary, sends an instant Telegram notification, and automatically sends a follow-up email.
+The workflow reviews the lead details, creates a quick AI-generated summary, sends an instant Telegram notification to the business owner, and automatically sends a follow-up email to the lead.
 
-This helps businesses respond faster and keeps all lead information organized in one process.
-
+This process helps businesses respond faster, stay organized, and reduce the chances of losing potential customers.
