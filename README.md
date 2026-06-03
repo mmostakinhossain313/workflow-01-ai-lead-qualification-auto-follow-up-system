@@ -116,3 +116,44 @@ This process helps businesses respond faster, stay organized, and reduce the cha
 
 ![Complete Workflow](screenshots/07-complete-workflow.png)
 
+## Testing Results
+
+The workflow was tested using a real lead submission collected through the Google Form.
+
+### Test Scenario
+
+Lead Information:
+
+* Date: 6/3/2026 16:39:43
+* Name: Mim
+* Email: [realrahman12@gmail.com](mailto:realrahman12@gmail.com)
+* Business Type: Food
+* Budget: 7000
+
+### Expected Result
+
+* Lead stored in Google Sheets
+* Workflow triggered automatically
+* AI generated lead summary
+* Telegram notification sent
+* Follow-up email delivered
+
+### Test Status
+
+✅ Passed
+
+The workflow completed successfully from form submission to follow-up communication. All automation steps were executed as expected.
+
+## Project Outcome
+
+This project demonstrates a complete lead management workflow built with n8n.
+
+A new lead is captured through a form, stored in a database, reviewed automatically, and followed up without manual effort.
+
+The workflow helps businesses respond faster, stay organized, and reduce the risk of losing potential customers.
+
+The core idea behind this project is simple:
+
+**No Lead Should Be Lost.**
+
+
