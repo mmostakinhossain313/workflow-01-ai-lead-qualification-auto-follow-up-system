@@ -1,0 +1,176 @@
+{
+  "name": "Workflow 01 AI Lead Qualification & Auto Follow-up System",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1Dl1-UX7xbd47W51szZIogWSyCIXlGcxZNkYHlA0Sui8",
+          "mode": "list",
+          "cachedResultName": "Capture New Leads with Google Forms",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Dl1-UX7xbd47W51szZIogWSyCIXlGcxZNkYHlA0Sui8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1256759448,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Dl1-UX7xbd47W51szZIogWSyCIXlGcxZNkYHlA0Sui8/edit#gid=1256759448"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -352,
+        0
+      ],
+      "id": "f3870094-8419-42d4-9615-42a2e3fec2b6",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "oWLZtsTXLWr3PNY2",
+          "name": "Google Sheets Trigger OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=Analyze this lead:\n\nName: {{$json[\"Name\"]}}\n\nEmail: {{$json[\"Email\"]}}\n\nBusiness Type: {{$json[\"Business Type\"]}}\n\nBudget: {{$json[\"Budget\"]}}\n\nProvide:\n\n1. Lead Quality\n2. Recommended Action\n3. Short Summary\n\nWrite in a professional and human style."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        -208,
+        0
+      ],
+      "id": "1e7a4de8-0200-45d1-a715-4aa82f95e4c7",
+      "name": "Message a model",
+      "credentials": {
+        "openAiApi": {
+          "id": "qkmcSIWhxRW61AM1",
+          "name": "OpenAI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "1200648760",
+        "text": "=🔥 New Lead Received\n\n👤 Name: {{$node[\"Google Sheets Trigger\"].json[\"Name\"]}}\n\n📧 Email: {{$node[\"Google Sheets Trigger\"].json[\"Email\"]}}\n\n🏢 Business Type: {{$node[\"Google Sheets Trigger\"].json[\"Business Type\"]}}\n\n💰 Budget: {{$node[\"Google Sheets Trigger\"].json[\"Budget\"]}}\n\n📋 AI Analysis:\n\n{{$node[\"Message a model\"].json.output[0].content[0].text}}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        80,
+        0
+      ],
+      "id": "8306d8b6-e1d1-45a0-b4f8-144f9659bcce",
+      "name": "Send a text message",
+      "webhookId": "3d7531e4-3ad7-489f-a246-9c35e8241891",
+      "credentials": {
+        "telegramApi": {
+          "id": "qV5fSLbX8Zjt733B",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{$node[\"Google Sheets Trigger\"].json[\"Email\"]}}",
+        "subject": "Thank You for Your Inquiry",
+        "message": "=Hi {{$node[\"Google Sheets Trigger\"].json[\"Name\"]}},\n\nThank you for reaching out.\n\nWe have received your inquiry and our team is currently reviewing your requirements.\n\nHere is a quick summary of your request:\n\nBusiness Type: {{$node[\"Google Sheets Trigger\"].json[\"Business Type\"]}}\n\nBudget: {{$node[\"Google Sheets Trigger\"].json[\"Budget\"]}}\n\nOur team will contact you shortly with the next steps.\n\nWe appreciate your interest and look forward to speaking with you.\n\nBest regards,\n\nYour Company Name\n",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        288,
+        0
+      ],
+      "id": "fdf35ce6-0518-4d56-9c38-88427b6d2b53",
+      "name": "Send a message",
+      "webhookId": "842f1a4e-d0b2-4883-abcb-33655273ccb2",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "6stsBcdkO41pX8Kq",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a text message": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "b5261635-9dc5-4d1f-85ef-f945724f8411",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f2f23a593b5262fad10e7ebf366e5500ddfd99f99fc69ff6bdb831511c19c666"
+  },
+  "id": "YfJXIWxAxLeOVFgz",
+  "tags": []
+}
