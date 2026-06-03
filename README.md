@@ -85,3 +85,34 @@ The lead information is automatically stored in Google Sheets, which triggers th
 The workflow reviews the lead details, creates a quick AI-generated summary, sends an instant Telegram notification to the business owner, and automatically sends a follow-up email to the lead.
 
 This process helps businesses respond faster, stay organized, and reduce the chances of losing potential customers.
+
+## Screenshots
+
+### Lead Capture Form
+
+![Google Form](screenshots/01-google-form.png)
+
+### Lead Database
+
+![Google Sheet](screenshots/02-google-sheet.png)
+
+### Workflow Trigger
+
+![Google Sheets Trigger](screenshots/03-google-sheets-trigger.png)
+
+### AI Lead Analysis
+
+![AI Analysis](screenshots/04-ai-analysis.png)
+
+### Telegram Notification
+
+![Telegram Alert](screenshots/05-telegram-alert.jpeg)
+
+### Automatic Follow-Up Email
+
+![Gmail Follow-Up](screenshots/06-gmail-followup.jpeg)
+
+### Complete Workflow
+
+![Complete Workflow](screenshots/07-complete-workflow.png)
+
